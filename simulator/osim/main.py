@@ -4,7 +4,7 @@ import numpy as np
 
 
 # Constant in MPH
-gravity = 21.937
+gravity = 9.81
 
 
 # Equation for time of flight
@@ -74,6 +74,7 @@ print("--IMPORTANT VALUES--")
 print("Time of flight: {}".format(time))
 print("Maximum height reached: {}".format(height))
 print("Horizontal distance covered: {}".format(distance))
+
 
 # Plot graph
 plt.plot(xPosList, yPosList)

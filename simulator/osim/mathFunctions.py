@@ -1,6 +1,6 @@
 import math
 
-# Constant in MPH
+# Constant in M/s
 gravity = 9.81
 
 
@@ -26,11 +26,11 @@ def maxHeight(v, a):
 
 
 # Equation for x position
-def xPos(v, a, x):
+def xPos(v, a, t):
     posList = []
     a = math.radians(a)
 
-    for i in x:
+    for i in t:
         pos = v * math.cos(a) * i
         posList.append(pos)
 
@@ -38,12 +38,56 @@ def xPos(v, a, x):
 
 
 # Equation for y position
-def yPos(v, a, y):
+def yPos(v, a, t):
     posList = []
     a = math.radians(a)
 
-    for i in y:
+    for i in t:
         pos = (v * math.sin(a) * i) - (.5 * gravity * (i*i))
         posList.append(pos)
 
     return posList
+
+
+# Equation for x velocity
+def xVelo(v, t):
+    veloList = []
+
+    for i in t:
+        velo = v
+        veloList.append(velo)
+
+    return veloList
+
+
+# Equation for y velocity
+def yVelo(v, t):
+    veloList = []
+
+    for i in t:
+        velo = (v - (gravity * i))
+        veloList.append(velo)
+
+    return veloList
+
+
+# Equation for x acceleration
+def xAcc(t):
+    accList = []
+
+    for i in t:
+        acc = 0
+        accList.append(acc)
+
+    return accList
+
+
+# Equation for y acceleration
+def yAcc(t):
+    accList = []
+
+    for i in t:
+        acc = gravity * -1
+        accList.append(acc)
+
+    return accList

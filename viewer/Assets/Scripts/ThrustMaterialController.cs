@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ThrustMaterialController : MonoBehaviour
 {
+    public static Renderer[] rendList;
+        
     public Renderer objeRenderer1;
     public GameObject objec1;
     public Renderer objeRenderer2;

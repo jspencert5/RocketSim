@@ -1,5 +1,7 @@
+import os
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
+import numpy as np
 
 from osim.database.objects.Base import Base
 from osim.database.objects.Body import Body
@@ -46,9 +48,9 @@ class Parts:
         ]
 
         engines = [
-            Engine(name="Estes D12", part="Engine", mass=44, outerDiameter=24, length=70, profileName="Estes_D12.eng"),
-            Engine(name="Estes E12", part="Engine", mass=59, outerDiameter=24, length=95, profileName="Estes_E12.eng"),
-            Engine(name="Estes E9", part="Engine", mass=58, outerDiameter=24, length=95, profileName="Estes_E9.eng"),
+            Engine(name="Estes D12", part="Engine", mass=44, fuelMass= 21.1, outerDiameter=24, length=70, profileName="Estes_D12.eng"),
+            Engine(name="Estes E12", part="Engine", mass=59, fuelMass= 35.8, outerDiameter=24, length=95, profileName="Estes_E12.eng"),
+            Engine(name="Estes E9", part="Engine", mass=58, fuelMass= 35.9, outerDiameter=24, length=95, profileName="Estes_E9.eng"),
         ]
 
         s.bulk_save_objects(bodies)
@@ -60,18 +62,34 @@ class Parts:
     def getEngine(self, name):
 
         s = Session(self.engine)
-        return s.execute(select(Engine).where(Engine.name == name)).first()
+        return s.execute(select(Engine).where(Engine.name == name)).first()[0]
 
     def getBody(self, name):
         
         s = Session(self.engine)
-        return s.execute(select(Body).where(Body.name == name)).first()
+        return s.execute(select(Body).where(Body.name == name)).first()[0]
 
 
     def getNose(self, name):
         
         s = Session(self.engine)
-        return s.execute(select(Nose).where(Nose.name == name)).first()
+        return s.execute(select(Nose).where(Nose.name == name)).first()[0]
+    
+    def getProfile(self, name):
+        
+        points = []
+
+        current_working_directory = os.path.abspath('.')
+        dir = current_working_directory + "\\simulator\\osim\\database\\profiles\\"
+
+        with open(dir + name, 'r') as f:
+            for line in f.readlines():
+                points.append(line.strip().split(' '))
+        
+        time = [float(p[0]) for p in points]
+        thrust = [float(p[1]) for p in points]
+        
+        return (np.asarray(time), np.asarray(thrust))
 
 
     

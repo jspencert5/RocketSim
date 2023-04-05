@@ -15,7 +15,11 @@ def calcDP(v, dt):
         dt: change in time
     Returns: [dpx, dpy, dpz]
     """
-    pass
+    vx, vy, vz = v
+    dpx = vx * dt
+    dpy = vy * dt
+    dpz = vz * dt
+    return dpx, dpy, dpz
 
 def calcDV(a, dt):
     """
@@ -26,7 +30,12 @@ def calcDV(a, dt):
         dt: change in time, s
     Returns: [dvx, dvy, dvz]
     """
-    pass
+    ax, ay, az = a
+    dvx = ax * dt
+    dvy = ay * dt
+    dvz = az * dt
+    return dvx, dvy, dvz
+
 
 def calcAcceleration(F, m):
     """
@@ -37,4 +46,8 @@ def calcAcceleration(F, m):
         m: mass, in grams [x,y,z]
     Returns: array [ax, ay, az]
     """
-    pass
+    Fx, Fy, Fz = F
+    ax = Fx / m
+    ay = Fy / m
+    az = Fz / m
+    return ax, ay, az

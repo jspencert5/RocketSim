@@ -1,3 +1,4 @@
+
 """
 
 I/O
@@ -5,8 +6,12 @@ Desc: will hold all of the i/o methods needed to read and write csv files
 
 
 """
+import sys
+import csv
+from osim.database import Database
 
-def getInputFile(path):
+
+def getSystemArg():
     """
     getInputFile
     Desc: this will get all the needed data for a simulation from a CSV file
@@ -14,10 +19,13 @@ def getInputFile(path):
         Path: String - path to the input csv file
     Returns: ?
     """
+    angle = sys.argv[1]
+    engine = Database.getEngine(sys.argv[2])
+    body = Database.getBody(sys.argv[3])
+    nose_type = Database.getNose(sys.argv[4])
 
-    # Take in angle, engine, body, and nose type
+    return angle, engine, body, nose_type
 
-    pass
 
 def exportSimData(lines, path):
     """
@@ -27,4 +35,9 @@ def exportSimData(lines, path):
         lines: 2D Array - each array in the array is a line in the csv
     Returns: ?
     """
-    pass
+    with open(path, "w+") as my_csv:
+        csvWriter = csv.writer(my_csv, delimiter=',')
+        csvWriter.writerows(lines)
+    return 0
+
+

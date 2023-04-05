@@ -8,7 +8,7 @@ using System.Text;
 public class ReadCSV : MonoBehaviour
 {
     public string filePath;
-    public ArrayList values = new ArrayList();
+    public static ArrayList values = new ArrayList();
     public void ReadFile()
     {
         try
@@ -25,12 +25,6 @@ public class ReadCSV : MonoBehaviour
         catch
         {
             print("Error in CSV file reading.");
-        }
-
-        //delete
-        foreach (var i in values)
-        {
-            print(i + "\n");
         }
 
     }

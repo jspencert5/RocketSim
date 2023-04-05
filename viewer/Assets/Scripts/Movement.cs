@@ -58,7 +58,6 @@ public class Movement : MonoBehaviour
                 
                 curI = calcI(stopwatch2.ElapsedMilliseconds * .001f);
 
-                //objec.transform.position = new Vector3(14, 0, -15);
             } else
             {
                 isMoving = false;

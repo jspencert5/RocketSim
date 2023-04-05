@@ -1,4 +1,5 @@
 from osim.database.Database import Parts
+from osim.calculations.driver import Driver
 
 """
 
@@ -16,5 +17,6 @@ db = Parts()
 # fetch needed data using database for parts
 
 # pass varaibles to run driver function
+Driver.run() # need to pass inital params
 
 # save data

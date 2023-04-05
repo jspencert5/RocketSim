@@ -28,10 +28,17 @@ public class ReadCSV : MonoBehaviour
         }
 
         //delete
+<<<<<<< Updated upstream
         //foreach (var i in values)
         //{
         //    print(i + "\n");
         //}
+=======
+        foreach (var i in values)
+        {
+            //print(i + "\n");
+        }
+>>>>>>> Stashed changes
 
     }
 }

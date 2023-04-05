@@ -1,6 +1,12 @@
 # File used to test IO for kinetics methods
 
-import kinetics
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
+
+from osim.calculations.helpers.kinetics import calcDrag, calcGravity
 
 '''
 # -----------------------------------------------
@@ -38,7 +44,7 @@ thrust.append(z)
 
 velocity = [10, 20, 30]
 
-kinetics.calcDrag(velocity)
-x = kinetics.calcGravity(.1)
+calcDrag(velocity)
+x = calcGravity(.1)
 print(x)
 

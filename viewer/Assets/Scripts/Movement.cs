@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     public static float[] xPos = new float[ReadCSV.values.Count];
     public static float[] yPos = new float[ReadCSV.values.Count];
     public static float[] times = new float[ReadCSV.values.Count];
+    public static float[] xVel = new float[ReadCSV.values.Count];
+    public static float[] yVel = new float[ReadCSV.values.Count];
 
     Stopwatch stopwatch2 = new Stopwatch();
 
@@ -20,7 +22,7 @@ public class Movement : MonoBehaviour
     private bool isMoving = false;
     private bool firstLoop = true;
 
-    int curI = 0;
+    public static int curI = 0;
 
     void Start()
     {
@@ -37,6 +39,8 @@ public class Movement : MonoBehaviour
             times[i] = float.Parse(temps[0]);
             xPos[i] = float.Parse(temps[1]);
             yPos[i] = float.Parse(temps[2]);
+            xVel[i] = float.Parse(temps[3]);
+            yVel[i] = float.Parse(temps[4]);
 
             //print(xPos[i] + " " + yPos[i] + " " + times[i] + "\n");
         }

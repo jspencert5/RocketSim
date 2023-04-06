@@ -24,6 +24,10 @@ public class Movement : MonoBehaviour
 
     public static int curI = 0;
 
+    private float angle;
+    private float angle_degrees;
+    private Vector3 currentRotation;
+
     void Start()
     {
         string temp;
@@ -58,7 +62,14 @@ public class Movement : MonoBehaviour
 
             if (stopwatch2.ElapsedMilliseconds * .001f < times[times.Length-1])
             {
+                angle = Mathf.Atan2(xVel[curI], yVel[curI]);
+                angle_degrees = angle * 180/Mathf.PI; 
+
+                //currentRotation = objec.transform.eulerAngles;
+                //currentRotation.z = angle_degrees;
+
                 objec.transform.position = new Vector3(xPos[curI], yPos[curI], -15);
+                objec.transform.rotation = Quaternion.Euler(0, 0, angle_degrees);
                 
                 curI = calcI(stopwatch2.ElapsedMilliseconds * .001f);
 

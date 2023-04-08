@@ -87,8 +87,7 @@ def calcGravity(mass):
     Returns: Force of gravity [x,y,z], in m/s
     """
 
-    gravity = 9.81 * mass
-
+    gravity = -1 * (9.81 * mass)
 
     # Used for testing -----
     print(gravity)

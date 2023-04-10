@@ -6,7 +6,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 
 
-from osim.calculations.helpers.kinetics import calcDrag, calcGravity
+from osim.calculations.helpers.kinetics import calcFNet
+from osim.calculations.helpers.kinetics import calcDrag
+from osim.calculations.helpers.kinetics import calcGravity
 
 '''
 # -----------------------------------------------
@@ -42,9 +44,15 @@ thrust.append(z)
 # -----------------------------------------------
 '''
 
-velocity = [10, 20, 30]
 
-calcDrag(velocity)
-x = calcGravity(.1)
-print(x)
+# to test, comment out line 4 of kinetics file
+velocity = [10, 10, 0]
+
+drag = calcDrag(velocity)
+gravity = calcGravity(.1)
+thrust = 20
+
+calcFNet(drag, gravity, thrust, 45)
+
+
 

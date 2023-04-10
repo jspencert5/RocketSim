@@ -54,22 +54,25 @@ class RocketState:
     def updateAcceleration(self, da):
         """
         updateAcceleration
-        Desc: updates velocity based on change in velocity (vf = vi + dv )
+        Desc: updates acceleration based on change in acceleration (vf = vi + dv )
         """
         self.a = list(map(add, self.a, da))
 
     def updatePosition(self, dp):
         """
         updatePosition
-        Desc: updates velocity based on change in velocity (vf = vi + dv )
+        Desc: updates velocity based on change in position (vf = vi + dv )
         """
         self.p = list(map(add, self.p, dp))
 
     def updateMass(self, dm):
         """
         updateMass
-        Desc: updates velocity based on change in velocity (vf = vi + dv )
+        Desc: updates mass based on change in time (mf = mi - dm )
         """
+
+
+
         self.mR = self.mR + dm
 
 

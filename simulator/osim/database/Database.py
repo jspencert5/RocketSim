@@ -3,10 +3,10 @@ from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
 import numpy as np
 
-from osim.database.objects.Base import Base
-from osim.database.objects.Body import Body
-from osim.database.objects.Engine import Engine
-from osim.database.objects.Nose import Nose
+from simulator.osim.database.objects.Base import Base
+from simulator.osim.database.objects.Body import Body
+from simulator.osim.database.objects.Engine import Engine
+from simulator.osim.database.objects.Nose import Nose
 
 
 """
@@ -48,9 +48,9 @@ class Parts:
         ]
 
         engines = [
-            Engine(name="Estes D12", part="Engine", mass=44, fuelMass= 21.1, outerDiameter=24, length=70, profileName="Estes_D12.eng"),
-            Engine(name="Estes E12", part="Engine", mass=59, fuelMass= 35.8, outerDiameter=24, length=95, profileName="Estes_E12.eng"),
-            Engine(name="Estes E9", part="Engine", mass=58, fuelMass= 35.9, outerDiameter=24, length=95, profileName="Estes_E9.eng"),
+            Engine(name="Estes D12", part="Engine", mass=44, fuelMass= 21.1, outerDiameter=24, length=70, profileName="Estes_D12.eng", maxBurnTime=1.65),
+            Engine(name="Estes E12", part="Engine", mass=59, fuelMass= 35.8, outerDiameter=24, length=95, profileName="Estes_E12.eng", maxBurnTime=2.44),
+            Engine(name="Estes E9", part="Engine", mass=58, fuelMass= 35.9, outerDiameter=24, length=95, profileName="Estes_E9.eng", maxBurnTime=3.09),
         ]
 
         s.bulk_save_objects(bodies)

@@ -5,8 +5,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 
 
-from osim.database.Database import Parts
-from osim.calculations.helpers.misc import fitThrust
+from simulator.osim.database.Database import Parts
+from simulator.osim.calculations.helpers.misc import fitThrust
 
 db = Parts()
 

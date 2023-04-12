@@ -1,4 +1,4 @@
-from osim.database.objects.Base import Base
+from simulator.osim.database.objects.Base import Base
 from sqlalchemy import Column, Integer, String, Float
 
 class Body(Base):

@@ -1,5 +1,5 @@
 import os
-from osim.database.objects.Base import Base
+from simulator.osim.database.objects.Base import Base
 from sqlalchemy import Column, Integer, String, Float
 
 class Engine(Base):
@@ -14,3 +14,4 @@ class Engine(Base):
     outerDiameter = Column(Float)
     length = Column(Float)
     profileName = Column(String)
+    maxBurnTime = Column(Float)

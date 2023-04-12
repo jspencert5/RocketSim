@@ -1,8 +1,6 @@
 import math
 from math import pi
 
-from simulator.tests import CurveFit
-
 """
 Kinetics
 Desc: methods to calculate the Kinetics of the rocket
@@ -54,7 +52,7 @@ def calcFNet(drag, gravity, thrust, angle):
 
 
     # Used for testing -----
-    print(FNet)
+    #print(FNet)
     # ----------------------
 
     return FNet
@@ -82,7 +80,7 @@ def calcDrag(velocity):
 
 
     # Used for testing -----
-    print(drag)
+    #print(drag)
     # ----------------------
 
     return drag
@@ -94,19 +92,19 @@ def calcGravity(mass):
     Desc: calculates current gravity
     Params:
         mass: mass of rocket, in kg
-    Returns: Force of gravity [x,y,z], in m/s
+    Returns: Force of gravity [x,y,z], in m/s^2
     """
 
     gravity = -1 * (9.81 * mass)
 
     # Used for testing -----
-    print(gravity)
+    #print(gravity)
     # ----------------------
 
     return [0, gravity, 0]
 
 
-def calcThrust(time):
+def calcThrust(time, fitFunction):
     """
     calcThrust
     Desc: calculates current thrust
@@ -114,11 +112,11 @@ def calcThrust(time):
         time: time elapsed since start of ignition of booster
     Returns: Magnitude of the force of thrust, in N
     """
-    fitFunction = CurveFit.getfitFunc()
+
     thrust = fitFunction(time)
 
     # Used for testing -----
-    print(thrust)
+    #print(thrust)
     # ----------------------
 
-    return thrust
+    return thrust if (thrust > 0) else 0

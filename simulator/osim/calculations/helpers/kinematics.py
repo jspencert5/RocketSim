@@ -19,7 +19,7 @@ def calcDP(v, dt):
     dpx = vx * dt
     dpy = vy * dt
     dpz = vz * dt
-    return dpx, dpy, dpz
+    return [dpx, dpy, dpz]
 
 def calcDV(a, dt):
     """
@@ -34,7 +34,7 @@ def calcDV(a, dt):
     dvx = ax * dt
     dvy = ay * dt
     dvz = az * dt
-    return dvx, dvy, dvz
+    return [dvx, dvy, dvz]
 
 
 def calcAcceleration(F, m):
@@ -50,4 +50,12 @@ def calcAcceleration(F, m):
     ax = Fx / m
     ay = Fy / m
     az = Fz / m
-    return ax, ay, az
+    return [ax, ay, az]
+
+
+def calcDM(dt, thrust, v):
+    """
+    
+    """
+
+    return 0

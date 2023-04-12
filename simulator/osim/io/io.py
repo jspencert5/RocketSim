@@ -8,7 +8,9 @@ Desc: will hold all of the i/o methods needed to read and write csv files
 """
 import sys
 import csv
-from osim.database import Database
+import os
+#sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from osim.database.Database import Parts
 
 
 def getSystemArg():
@@ -19,10 +21,11 @@ def getSystemArg():
         Path: String - path to the input csv file
     Returns: ?
     """
+    db = Parts()
     angle = sys.argv[1]
-    engine = Database.getEngine(sys.argv[2])
-    body = Database.getBody(sys.argv[3])
-    nose_type = Database.getNose(sys.argv[4])
+    engine = db.getEngine(sys.argv[2])
+    body = db.getBody(sys.argv[3])
+    nose_type = db.getNose(sys.argv[4])
 
     return angle, engine, body, nose_type
 

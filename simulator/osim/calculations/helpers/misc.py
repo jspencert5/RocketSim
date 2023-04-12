@@ -1,4 +1,6 @@
-from scipy.optimize import curve_fit
+
+import numpy as np
+from scipy.interpolate import UnivariateSpline
 
 """
 
@@ -8,16 +10,10 @@ Desc: helper methods that did not fit the other categories
 
 """
 
-def thrustCurveFunction():
-    """
-    thrustCurveFunction
-    Desc: curve that describes a function that can be fit to a thrust curve
-    """
-    pass
-
-def fitThrust():
+def fitThrust(xPoints ,yPoints):
     """
     fitThrust
     Desc: creates a fit of the thrust curve using thrustCurveFunction and scipy curve_fit
     """
-    pass
+    print(xPoints ,yPoints)
+    return UnivariateSpline(np.asarray(xPoints), np.asarray(yPoints))

@@ -3,8 +3,10 @@ from simulator.osim.calculations.helpers.kinetics import calcFNet, calcDrag, cal
 from simulator.osim.io import io
 from simulator.osim.calculations.RocketState import RocketState
 from simulator.osim.calculations.helpers.misc import fitThrust
+from simulator.osim.io.graphs import createGraph
 
 import matplotlib.pyplot as plt
+import math
 
 """
 
@@ -37,6 +39,11 @@ def run():
     #plt.plot(times, fitFunc(times), 'g', lw=3)
     #plt.show()
 
+    positionData = []
+    velocityData = []
+    accelerationData = []
+    timeData = []
+
     lines = []
 
     while(rocketState.p[1] > 0):
@@ -56,9 +63,15 @@ def run():
 
             rocketState.updateState(netForce, thrust)
 
-            print(rocketState.v)
+            #print(rocketState.v)
+            line = rocketState.export()
 
-            lines.append(rocketState.export())
+            positionData.append(line[2])
+            velocityData.append(math.sqrt(math.pow(line[4],2) + math.pow(line[5],2)))
+            accelerationData.append(math.sqrt(math.pow(line[7],2) + math.pow(line[8],2)))
+            timeData.append(line[0])
+
+            lines.append(line)
 
         else:
             # projectile motion calculation happens here
@@ -67,3 +80,7 @@ def run():
 
     # save data
     io.exportSimData(lines, "simulationData.csv")
+    
+    createGraph(positionData, timeData, "pos.png")
+    createGraph(velocityData, timeData, "vel.png")
+    createGraph(accelerationData, timeData, "acc.png")

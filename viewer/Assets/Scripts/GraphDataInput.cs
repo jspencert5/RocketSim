@@ -43,7 +43,7 @@ public class GraphDataInput : MonoBehaviour
         float vMax = 0;
         float aMax = 0;
 
-        for (int i = 1; i < time.Length; i++)
+        for (int i = 0; i < time.Length; i++)
         {
             temp = RunPython.values[i].ToString();
             temps = temp.Split(',');

@@ -33,6 +33,12 @@ public class Movement : MonoBehaviour
         string temp;
         string[] temps = new string[10];
 
+        xPos = new float[RunPython.values.Count];
+        yPos = new float[RunPython.values.Count];
+        xVel = new float[RunPython.values.Count];
+        yVel = new float[RunPython.values.Count];
+        times = new float[RunPython.values.Count];
+
         objec.transform.localRotation = Quaternion.Euler(0, 0, (-1) * Rotation.angle);
 
 
@@ -75,6 +81,7 @@ public class Movement : MonoBehaviour
                 isMoving = false;
                 firstLoop = true;
                 stopwatch2.Reset();
+                curI = 0;
             }
         }
     }
@@ -82,11 +89,7 @@ public class Movement : MonoBehaviour
     public void move()
     {
         isMoving = true;
-        xPos = new float[RunPython.values.Count];
-        yPos = new float[RunPython.values.Count];
-        xVel = new float[RunPython.values.Count];
-        yVel = new float[RunPython.values.Count];
-        times = new float[RunPython.values.Count];
+        
     }
 
     public int calcI(float time)

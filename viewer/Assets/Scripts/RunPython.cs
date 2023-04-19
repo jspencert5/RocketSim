@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using UnityEngine;
 
 public class RunPython : MonoBehaviour
@@ -8,9 +10,36 @@ public class RunPython : MonoBehaviour
     public string nose;
     public string body;
     public string thruster;
+
+    public string filePath;
+    public static ArrayList values = new ArrayList();
     public void python()
     {
         string pythonArgs = pythonFileName + " " + nose + " " + body + " " + thruster;
-        System.Diagnostics.Process.Start("python", pythonArgs);
+        Process p = Process.Start("pythonw", pythonArgs);
+        
+        if (p.HasExited) { 
+            ReadFile();
+        }
+    }
+
+    public void ReadFile()
+    {
+        try
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    values.Add(line);
+                }
+            }
+        }
+        catch
+        {
+            print("Error in CSV file reading.");
+        }
+
     }
 }

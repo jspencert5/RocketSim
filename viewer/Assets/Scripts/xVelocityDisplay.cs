@@ -12,6 +12,7 @@ public class xVelocityDisplay : MonoBehaviour
         void Update()
         {
             xVel = Movement.xVel[Movement.curI];
+            print(Movement.curI);
             xVelText.text = "X-Velocity: " + xVel.ToString();
         }
 

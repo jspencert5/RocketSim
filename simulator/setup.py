@@ -12,7 +12,7 @@ setup(
     version='0.1.0',
     description='Simulation for Rockets',
     long_description=readme,
-    author='Group Name',
+    author='OSIM',
     author_email='email@unf.edu',
     url='website.com',
     license=license,

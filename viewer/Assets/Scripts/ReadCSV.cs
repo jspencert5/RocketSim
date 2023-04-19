@@ -27,5 +27,18 @@ public class ReadCSV : MonoBehaviour
             print("Error in CSV file reading.");
         }
 
+        //delete
+<<<<<<< Updated upstream
+        //foreach (var i in values)
+        //{
+        //    print(i + "\n");
+        //}
+=======
+        foreach (var i in values)
+        {
+            //print(i + "\n");
+        }
+>>>>>>> Stashed changes
+
     }
 }

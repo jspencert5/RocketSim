@@ -33,7 +33,8 @@ public class Movement : MonoBehaviour
         string temp;
         string[] temps = new string[7];
 
-        //objeRenderer = objec.GetComponent<Transform>();
+        objec.transform.localRotation = Quaternion.Euler(0, 0, (-1) * Rotation.angle);
+
 
         for (int i = 1; i < xPos.Length ; i++)
         {
@@ -45,8 +46,6 @@ public class Movement : MonoBehaviour
             yPos[i] = float.Parse(temps[2]);
             xVel[i] = float.Parse(temps[3]);
             yVel[i] = float.Parse(temps[4]);
-
-            //print(xPos[i] + " " + yPos[i] + " " + times[i] + "\n");
         }
     }
 
@@ -64,9 +63,6 @@ public class Movement : MonoBehaviour
             {
                 angle = Mathf.Atan2(xVel[curI], yVel[curI]);
                 angle_degrees = angle * 180/Mathf.PI; 
-
-                //currentRotation = objec.transform.eulerAngles;
-                //currentRotation.z = angle_degrees;
 
                 objec.transform.position = new Vector3(xPos[curI], yPos[curI], -15);
                 objec.transform.rotation = Quaternion.Euler(0, 0, angle_degrees);
@@ -89,7 +85,7 @@ public class Movement : MonoBehaviour
 
     public int calcI(float time)
     {
-        for (int i = 0; i < xPos.Length; i++ )
+        for (int i = curI; i < xPos.Length; i++ )
         {
             if (times[i] > time)
             {

@@ -70,6 +70,8 @@ public class Movement : MonoBehaviour
     public static float[] xPos = new float[ReadCSV.values.Count];
     public static float[] yPos = new float[ReadCSV.values.Count];
     public static float[] times = new float[ReadCSV.values.Count];
+    public static float[] xVel = new float[ReadCSV.values.Count];
+    public static float[] yVel = new float[ReadCSV.values.Count];
 
     Stopwatch stopwatch2 = new Stopwatch();
 
@@ -79,7 +81,11 @@ public class Movement : MonoBehaviour
     private bool isMoving = false;
     private bool firstLoop = true;
 
-    int curI = 0;
+    public static int curI = 0;
+
+    private float angle;
+    private float angle_degrees;
+    private Vector3 currentRotation;
 
     void Start()
     {
@@ -96,6 +102,8 @@ public class Movement : MonoBehaviour
             times[i] = float.Parse(temps[0]);
             xPos[i] = float.Parse(temps[1]);
             yPos[i] = float.Parse(temps[2]);
+            xVel[i] = float.Parse(temps[3]);
+            yVel[i] = float.Parse(temps[4]);
 
             //print(xPos[i] + " " + yPos[i] + " " + times[i] + "\n");
         }
@@ -113,11 +121,17 @@ public class Movement : MonoBehaviour
 
             if (stopwatch2.ElapsedMilliseconds * .001f < times[times.Length-1])
             {
+                angle = Mathf.Atan2(xVel[curI], yVel[curI]);
+                angle_degrees = angle * 180/Mathf.PI; 
+
+                //currentRotation = objec.transform.eulerAngles;
+                //currentRotation.z = angle_degrees;
+
                 objec.transform.position = new Vector3(xPos[curI], yPos[curI], -15);
+                objec.transform.rotation = Quaternion.Euler(0, 0, angle_degrees);
                 
                 curI = calcI(stopwatch2.ElapsedMilliseconds * .001f);
 
-                //objec.transform.position = new Vector3(14, 0, -15);
             } else
             {
                 isMoving = false;

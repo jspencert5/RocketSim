@@ -219,7 +219,7 @@ MonoBehaviour:
           m_StringArgument: Scene2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1870930381}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ReadCSV, Assembly-CSharp
         m_MethodName: ReadFile
         m_Mode: 1
@@ -3025,7 +3025,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1870930380}
   - component: {fileID: 1870930379}
-  - component: {fileID: 1870930381}
   - component: {fileID: 1870930382}
   m_Layer: 0
   m_Name: SceneControl
@@ -3061,19 +3060,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1870930381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870930378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0369f43b14cb0db4383e48d444740e4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filePath: Assets/Scripts/values.csv
 --- !u!114 &1870930382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3086,10 +3072,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f59fa1fbc811e241914076feb4041df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pythonFileName: Assets/Scripts/pythonTest.py
+  pythonFileName: Assets/OPRAST-Sim.py
   nose: nose
   body: body
   thruster: thruster
+  filePath: Asset/simulationData.csv
 --- !u!1 &1903649254
 GameObject:
   m_ObjectHideFlags: 0

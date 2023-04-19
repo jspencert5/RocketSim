@@ -16,11 +16,9 @@ public class RunPython : MonoBehaviour
     public void python()
     {
         string pythonArgs = pythonFileName + " " + nose + " " + body + " " + thruster;
-        Process p = Process.Start("pythonw", pythonArgs);
-        
-        if (p.HasExited) { 
-            ReadFile();
-        }
+        Process p = Process.Start("python", pythonArgs);
+
+        ReadFile();
     }
 
     public void ReadFile()

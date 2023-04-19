@@ -20,7 +20,7 @@ public class GraphLoader : MonoBehaviour
         graph1.GetComponent<Image>().sprite = Resources.Load<Sprite>("vel");
 
         GameObject graph2 = graphs.transform.Find("Graph (2)").gameObject;
-        graph2.GetComponent<Image>().sprite = Asset.Load<Sprite>("acc");
+        graph2.GetComponent<Image>().sprite = Resources.Load<Sprite>("acc");
     }
     
 }

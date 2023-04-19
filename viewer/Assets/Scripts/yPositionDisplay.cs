@@ -12,6 +12,8 @@ public class yPositionDisplay : MonoBehaviour
 
     void Update()
     {
+        print(Movement.yPos.Length);
+        print(Movement.curI);
         height = Movement.yPos[Movement.curI];
         if (height < 0.1)
         {

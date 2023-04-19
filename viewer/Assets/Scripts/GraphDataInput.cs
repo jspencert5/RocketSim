@@ -13,10 +13,10 @@ public class GraphDataInput : MonoBehaviour
     private TextMeshProUGUI d1;
     private TextMeshProUGUI d2;
     private TextMeshProUGUI d3;
-    public static float[] time = new float[ReadCSV.values.Count];
-    public static float[] yPos = new float[ReadCSV.values.Count];
-    public static float[] vel = new float[ReadCSV.values.Count];
-    public static float[] accel = new float[ReadCSV.values.Count];
+    public static float[] time = new float[RunPython.values.Count];
+    public static float[] yPos = new float[RunPython.values.Count];
+    public static float[] vel = new float[RunPython.values.Count];
+    public static float[] accel = new float[RunPython.values.Count];
 
 
     void Start()
@@ -36,25 +36,25 @@ public class GraphDataInput : MonoBehaviour
         //generates events for removing lines?
         dd.PreDestroyLineEvent += (s, e) => { lines.Remove(e.line); };
 
-        //read info from ReadCSV
+        //read info from RunPython
         string temp;
-        string[] temps = new string[7];
+        string[] temps = new string[10];
         float yMax = 0;
         float vMax = 0;
         float aMax = 0;
 
         for (int i = 1; i < time.Length; i++)
         {
-            temp = ReadCSV.values[i].ToString();
+            temp = RunPython.values[i].ToString();
             temps = temp.Split(',');
 
             time[i] = float.Parse(temps[0]);
             yPos[i] = float.Parse(temps[2]);
-            float velX = float.Parse(temps[3]);
-            float velY = float.Parse(temps[4]);
+            float velX = float.Parse(temps[4]);
+            float velY = float.Parse(temps[5]);
             vel[i] = (float)(Math.Sqrt(velX * velX + velY * velY));
-            float accX = float.Parse(temps[5]);
-            float accY = float.Parse(temps[6]);
+            float accX = float.Parse(temps[7]);
+            float accY = float.Parse(temps[8]);
             accel[i] = (float)(Math.Sqrt(accX * accX + accY * accY));
 
             //find max values

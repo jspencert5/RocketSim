@@ -3076,7 +3076,7 @@ MonoBehaviour:
   nose: nose
   body: body
   thruster: thruster
-  filePath: Asset/simulationData.csv
+  filePath: Assets/simulationData.csv
 --- !u!1 &1903649254
 GameObject:
   m_ObjectHideFlags: 0

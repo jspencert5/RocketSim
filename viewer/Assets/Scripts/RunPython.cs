@@ -18,6 +18,7 @@ public class RunPython : MonoBehaviour
         string pythonArgs = pythonFileName + " " + nose + " " + body + " " + thruster;
         Process p = Process.Start("python", pythonArgs);
 
+        p.WaitForExit();
         ReadFile();
     }
 
@@ -31,6 +32,7 @@ public class RunPython : MonoBehaviour
                 while ((line = sr.ReadLine()) != null)
                 {
                     values.Add(line);
+                    //print(line);
                 }
             }
         }

@@ -8,11 +8,11 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public static float[] xPos = new float[ReadCSV.values.Count];
-    public static float[] yPos = new float[ReadCSV.values.Count];
-    public static float[] times = new float[ReadCSV.values.Count];
-    public static float[] xVel = new float[ReadCSV.values.Count];
-    public static float[] yVel = new float[ReadCSV.values.Count];
+    public static float[] xPos;
+    public static float[] yPos;
+    public static float[] times;
+    public static float[] xVel;
+    public static float[] yVel;
 
     Stopwatch stopwatch2 = new Stopwatch();
 
@@ -31,21 +31,21 @@ public class Movement : MonoBehaviour
     void Start()
     {
         string temp;
-        string[] temps = new string[7];
+        string[] temps = new string[10];
 
         objec.transform.localRotation = Quaternion.Euler(0, 0, (-1) * Rotation.angle);
 
 
-        for (int i = 1; i < xPos.Length; i++)
+        for (int i = 0; i < xPos.Length; i++)
         {
-            temp = ReadCSV.values[i].ToString();
+            temp = RunPython.values[i].ToString();
             temps = temp.Split(',');
 
             times[i] = float.Parse(temps[0]);
             xPos[i] = float.Parse(temps[1]);
             yPos[i] = float.Parse(temps[2]);
-            xVel[i] = float.Parse(temps[3]);
-            yVel[i] = float.Parse(temps[4]);
+            xVel[i] = float.Parse(temps[4]);
+            yVel[i] = float.Parse(temps[5]);
         }
     }
 
@@ -82,6 +82,11 @@ public class Movement : MonoBehaviour
     public void move()
     {
         isMoving = true;
+        xPos = new float[RunPython.values.Count];
+        yPos = new float[RunPython.values.Count];
+        xVel = new float[RunPython.values.Count];
+        yVel = new float[RunPython.values.Count];
+        times = new float[RunPython.values.Count];
     }
 
     public int calcI(float time)

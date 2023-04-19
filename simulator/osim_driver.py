@@ -23,7 +23,7 @@ def run():
     #init rocket state
     rocketState = RocketState()
 
-    # inital params
+    # initial params
     # pass variables to run driver function
     rocketState.theta = angle
     rocketState.mP = engine.fuelMass / 1000
@@ -62,8 +62,12 @@ def run():
 
         else:
             # projectile motion calculation happens here
-            break
-            lines.append([]) # append project motion data
+
+            rocketState.updateStateProjectile()
+
+            print(rocketState.v)
+
+            lines.append(rocketState.export())
 
     # save data
     io.exportSimData(lines, "simulationData.csv")

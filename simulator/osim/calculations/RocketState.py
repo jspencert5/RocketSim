@@ -1,6 +1,7 @@
 
 from operator import add
 from simulator.osim.calculations.helpers.kinematics import calcDM, calcAcceleration, calcDV, calcDP
+from simulator.osim.calculations.helpers.kinetics import calcDrag, calcDragX, calcDragY, area
 
 
 class RocketState:
@@ -24,7 +25,8 @@ class RocketState:
         self.fNet = [0.00001,0,0] # current net force [x,y,z], N
         self.theta = 0 # current angle off of x-axis, rad
         self.mR = 0 # mass rocket
-        self.mP = 0 # mass propelent
+        self.mP = 0 # mass propellant
+        # self.mT = self.mR + self.mP # mass total
 
         self._cd = 0.75 # drag coefficient
         self._P = 1.229 # air density, kg/m^3
@@ -52,6 +54,24 @@ class RocketState:
         self.updatePosition(calcDP(self.v, self.dt))
         self.updateMass(calcDM(self.dt, thrust, self.v))
 
+        self.updateTime(self.dt)
+
+
+    def updateStateProjectile(self):
+        """
+        updateStateProjectile
+        Desc: updates the state of the projectile once thrust is no longer accounted for
+        """
+
+        dragX = calcDragX(self.v)
+        dragY = calcDragY(self.v)
+
+        accelerationX = -dragX / self.mR
+        accelerationY = ((self.mR * -9.81) - dragY) / self.mR
+        self.a = [accelerationX, accelerationY, 0]
+
+        self.updateVelocity(calcDV(self.a, self.dt))
+        self.updatePosition(calcDP(self.v, self.dt))
         self.updateTime(self.dt)
 
 

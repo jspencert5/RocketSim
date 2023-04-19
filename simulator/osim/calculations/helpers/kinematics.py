@@ -1,7 +1,7 @@
 """
 
 Kinematics
-Desc: methods to calulcate the kinematics of the rocket
+Desc: methods to calculate the kinematics of the rocket
 
 
 """
@@ -20,6 +20,7 @@ def calcDP(v, dt):
     dpy = vy * dt
     dpz = vz * dt
     return [dpx, dpy, dpz]
+
 
 def calcDV(a, dt):
     """
@@ -43,7 +44,7 @@ def calcAcceleration(F, m):
     Desc: calculates the acceleration based on the current forces and mass (a = F / m)
     Params:
         F: force in newtons, [x,y,z]
-        m: mass, in grams [x,y,z]
+        m: mass, in grams
     Returns: array [ax, ay, az]
     """
     Fx, Fy, Fz = F

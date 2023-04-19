@@ -52,7 +52,7 @@ def calcFNet(drag, gravity, thrust, angle):
 
 
     # Used for testing -----
-    #print(FNet)
+    # print(FNet)
     # ----------------------
 
     return FNet
@@ -80,7 +80,65 @@ def calcDrag(velocity):
 
 
     # Used for testing -----
-    #print(drag)
+    # print(drag)
+    # ----------------------
+
+    return drag
+
+
+def calcDragX(velocity):
+    """
+    calcDragX
+    Desc: calculates current drag
+    Params:
+        velocity: current velocity of the rocket, in m/s [x, y, z]
+
+    Returns: Magnitude of the force of drag in the x direction, in N
+    """
+
+    # Finding complete velocity vector
+    dragVector = 0
+    for i in range(len(velocity)):
+        dragVector += velocity[i] ** 2
+
+    dragVector = math.sqrt(dragVector)
+
+    absVelocity = abs(velocity[0])
+
+    # Drag calc for complete velocity vector
+    drag = .5 * density * (dragVector * absVelocity) * area * Cd
+
+    # Used for testing -----
+    # print(drag)
+    # ----------------------
+
+    return drag
+
+
+def calcDragY(velocity):
+    """
+    calcDragX
+    Desc: calculates current drag
+    Params:
+        velocity: current velocity of the rocket, in m/s [x, y, z]
+
+    Returns: Magnitude of the force of drag in the x direction, in N
+    """
+
+    # Finding complete velocity vector
+    dragVector = 0
+    for i in range(len(velocity)):
+        dragVector += velocity[i] ** 2
+
+    dragVector = math.sqrt(dragVector)
+
+    absVelocity = abs(velocity[1])
+
+    # Drag calc for complete velocity vector
+    drag = .5 * density * (dragVector * absVelocity) * area * Cd
+
+    # Used for testing -----
+    # print(drag)
     # ----------------------
 
     return drag
@@ -116,7 +174,7 @@ def calcThrust(time, fitFunction):
     thrust = fitFunction(time)
 
     # Used for testing -----
-    #print(thrust)
+    # print(thrust)
     # ----------------------
 
     return thrust if (thrust > 0) else 0

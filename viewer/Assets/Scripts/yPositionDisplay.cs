@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames.Text;
+using System;
 
 public class yPositionDisplay : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class yPositionDisplay : MonoBehaviour
         {
             height = 0;
         }
-        heightText.text = "Y-Position: " + height.ToString();
+        heightText.text =  Math.Round(height).ToString();
     }
 
 }

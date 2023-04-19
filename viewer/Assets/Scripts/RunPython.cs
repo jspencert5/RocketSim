@@ -10,12 +10,13 @@ public class RunPython : MonoBehaviour
     public string nose;
     public string body;
     public string thruster;
+    public string angle;
 
     public string filePath;
     public static ArrayList values = new ArrayList();
     public void python()
     {
-        string pythonArgs = pythonFileName + " " + nose + " " + body + " " + thruster;
+        string pythonArgs = pythonFileName + " " + angle + " " + nose + " " + body + " " + thruster;
         Process p = Process.Start("python", pythonArgs);
         p.WaitForExit();
         values.Clear();

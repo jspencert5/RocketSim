@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     public static float[] times;
     public static float[] xVel;
     public static float[] yVel;
+    public static float[] xAcc;
+    public static float[] yAcc;
 
     Stopwatch stopwatch2 = new Stopwatch();
 
@@ -37,6 +39,8 @@ public class Movement : MonoBehaviour
         yPos = new float[RunPython.values.Count];
         xVel = new float[RunPython.values.Count];
         yVel = new float[RunPython.values.Count];
+        xAcc = new float[RunPython.values.Count];
+        yAcc = new float[RunPython.values.Count];
         times = new float[RunPython.values.Count];
 
         objec.transform.localRotation = Quaternion.Euler(0, 0, (-1) * Rotation.angle);
@@ -52,6 +56,9 @@ public class Movement : MonoBehaviour
             yPos[i] = float.Parse(temps[2]);
             xVel[i] = float.Parse(temps[4]);
             yVel[i] = float.Parse(temps[5]);
+            xAcc[i] = float.Parse(temps[7]);
+            yAcc[i] = float.Parse(temps[8]);
+
         }
     }
 

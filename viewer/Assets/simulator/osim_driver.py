@@ -47,6 +47,8 @@ def run():
 
     lines = []
 
+    lines.append([0,0,0,0,0,0,0,0,0,0,rocketState.mR])
+
     while(rocketState.p[1] > 0):
         if (rocketState.t <= engine.maxBurnTime):
 

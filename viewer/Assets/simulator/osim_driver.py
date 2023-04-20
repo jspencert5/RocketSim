@@ -23,6 +23,8 @@ def run():
     # fetch needed data using database for parts
     angle, engine, body, nose = io.getSystemArg(db)
 
+    print(angle, engine.name, body.name, nose.name)
+
     #init rocket state
     rocketState = RocketState()
 
@@ -33,6 +35,8 @@ def run():
     rocketState.mR = (engine.mass + body.mass + nose.mass) / 1000
     rocketState.p = [0,0.1,0] # set position to ~4in off ground 
     rocketState.dt = 1 / 30 # change in time (dt) 1/30 -> 30 frames per second
+
+    print("Attempting to Find Thrust Profile...")
 
     times, thrusts = db.getProfile(engine.profileName)
     fitFunc = fitThrust(times, thrusts) # create fit function
@@ -46,6 +50,8 @@ def run():
     timeData = []
 
     lines = []
+
+    print("Starting Simulation...")
 
     lines.append([0,0,0,0,0,0,0,0,0,0,rocketState.mR])
 

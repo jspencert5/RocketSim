@@ -3165,7 +3165,7 @@ MonoBehaviour:
   body: '"Paper"'
   thruster: '"Estes E12"'
   angle: 45
-  filePath: Assets/simulationData.csv
+  filePath: simulationData.csv
 --- !u!1 &1903649254
 GameObject:
   m_ObjectHideFlags: 0

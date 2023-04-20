@@ -80,11 +80,19 @@ class Parts:
         points = []
 
         current_working_directory = os.path.abspath('.')
-        dir = current_working_directory + "\\simulator\\osim\\database\\profiles\\"
 
-        with open(dir + name, 'r') as f:
-            for line in f.readlines():
-                points.append(line.strip().split(' '))
+        dir = current_working_directory + "\\Assets\\simulator\\osim\\database\\profiles\\"
+
+        try:
+
+            with open(dir + name, 'r') as f:
+                print("Openning File...")
+                for line in f.readlines():
+                    points.append(line.strip().split(' '))
+                    print(line)
+        except Exception as e: 
+            print(e)
+            print("Could not open thrust profile...")
         
         time = [float(p[0]) for p in points]
         thrust = [float(p[1]) for p in points]

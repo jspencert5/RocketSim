@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,8 +17,26 @@ public class RunPython : MonoBehaviour
     public static ArrayList values = new ArrayList();
     public void python()
     {
-        string pythonArgs = pythonFileName + " " + angle + " " + nose + " " + body + " " + thruster;
-        Process p = Process.Start("python", pythonArgs);
+        string pythonArgs = pythonFileName + " " + angle + " " + thruster + " " + body + " " + nose;
+        var p = new Process
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = "python",
+                Arguments = pythonArgs,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            }
+        };
+
+        p.Start();
+        while (!p.StandardOutput.EndOfStream)
+        {
+            string line = p.StandardOutput.ReadLine();
+            // do something with line
+            print(line);
+        }
         p.WaitForExit();
         values.Clear();
         ReadFile();

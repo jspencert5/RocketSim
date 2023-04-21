@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
+//using IronPython.Hosting;
+using System.IO;
 
 public class TextChanger : MonoBehaviour
 {
@@ -29,5 +32,20 @@ public class TextChanger : MonoBehaviour
     private void Start()
     {
         textField.text = texts[type,0];
+
+        //var engine = Python.CreateEngine();
+
+        //ICollection<string> searchPaths = engine.GetSearchPaths();
+
+        //Path to the folder of greeter.py
+        //searchPaths.Add(Directory.GetCurrentDirectory());
+        //Path to the Python standard library
+        //searchPaths.Add(Directory.GetCurrentDirectory() + @"\Assets\Plugins\Lib\");
+        //engine.SetSearchPaths(searchPaths);
+
+        //dynamic py = engine.ExecuteFile(@"C:\Users\jstai\Documents\GitHub\RocketSim\viewer\Assets\Scripts\pythonTest.py");
+        //dynamic greeter = py.Greeter("Mika");
+        //Debug.Log(greeter.greet());
+
     }
 }

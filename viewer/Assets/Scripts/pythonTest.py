@@ -1,4 +1,5 @@
-import sys
-
-if __name__ == '__main__':
-	print(sys.argv[1], sys.argv[2], sys.argv[3])
+class Greeter():
+    def __init__(self, name):
+        self.name = name
+    def greet(self):
+        return "Hi, " + self.name

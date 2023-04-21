@@ -77,7 +77,7 @@ public class Movement : MonoBehaviour
                 angle = Mathf.Atan2(xVel[curI], yVel[curI]);
                 angle_degrees = angle * 180 / Mathf.PI;
 
-                objec.transform.position = new Vector3(xPos[curI], yPos[curI], -15);
+                objec.transform.position = new Vector3(-xPos[curI], yPos[curI], 0);
                 objec.transform.rotation = Quaternion.Euler(0, 0, angle_degrees);
 
                 curI = calcI(stopwatch2.ElapsedMilliseconds * .001f);

@@ -316,7 +316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -98.999985}
+  m_AnchoredPosition: {x: 3, y: 24}
   m_SizeDelta: {x: 800, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65669399
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -400,7 +400,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 455, y: 425}
-  m_SizeDelta: {x: 420, y: 80}
+  m_SizeDelta: {x: 420, y: 166.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177616949
 MonoBehaviour:
@@ -543,7 +543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: -97.999985}
+  m_AnchoredPosition: {x: 210, y: 20.8}
   m_SizeDelta: {x: 800, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &178910915
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -736,7 +736,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 455, y: 48}
-  m_SizeDelta: {x: 420, y: 80}
+  m_SizeDelta: {x: 420, y: 166.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256396772
 MonoBehaviour:
@@ -948,7 +948,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 460, y: -297}
-  m_SizeDelta: {x: 420, y: 80}
+  m_SizeDelta: {x: 420, y: 166.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322044038
 MonoBehaviour:
@@ -1068,6 +1068,7 @@ GameObject:
   - component: {fileID: 344716517}
   - component: {fileID: 344716516}
   - component: {fileID: 344716515}
+  - component: {fileID: 344716519}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1162,6 +1163,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &344716519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344716514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c5a7546437cc6449b48eb13204d418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 300
+  height: 300
+  scale: 0.15
+  treePrefab1: {fileID: 1364922359172550, guid: 7e3c80b421a0d465b80b8e51a763ea9c, type: 3}
+  treePrefab2: {fileID: 1214657917099862, guid: abdd95d0229d64588b03d2806d9cc19a, type: 3}
+  treePrefab3: {fileID: 1743353957770956, guid: f41642586885949968180791f012ee81, type: 3}
+  acceptencePoint: 0.92
 --- !u!1 &348256745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,10 +1502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 65669399}
-  texts:
-  - Body 1
-  - Body 2
-  - Body 3
+  type: 1
 --- !u!4 &657699483
 Transform:
   m_ObjectHideFlags: 0
@@ -1902,8 +1919,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -46.199997}
+  m_SizeDelta: {x: 0, y: 92.40001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &823033136
 MonoBehaviour:
@@ -1952,8 +1969,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 31.7
+  m_fontSizeBase: 31.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2494,10 +2511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 1437768306}
-  texts:
-  - Nose 1
-  - Nose 2
-  - Nose 3
+  type: 0
 --- !u!4 &1200389689
 Transform:
   m_ObjectHideFlags: 0
@@ -2585,8 +2599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -46.199997}
+  m_SizeDelta: {x: 0, y: 92.40001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403360214
 MonoBehaviour:
@@ -2635,8 +2649,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 31.7
+  m_fontSizeBase: 31.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2716,7 +2730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2762,7 +2776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -87.999985}
+  m_AnchoredPosition: {x: 0, y: 23.5}
   m_SizeDelta: {x: 800, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1468435834
@@ -3003,10 +3017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 178910915}
-  texts:
-  - Thrusters 1
-  - Thrusters 2
-  - Thrusters 3
+  type: 2
 --- !u!4 &1720964382
 Transform:
   m_ObjectHideFlags: 0
@@ -3161,10 +3172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pythonFileName: Assets/OPRAST-Sim.py
-  nose: '"PNC-24A"'
-  body: '"Paper"'
-  thruster: '"Estes E12"'
-  angle: 45
   filePath: simulationData.csv
 --- !u!1 &1903649254
 GameObject:
@@ -3201,8 +3208,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -46.199997}
+  m_SizeDelta: {x: 0, y: 92.40001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1903649256
 MonoBehaviour:
@@ -3251,8 +3258,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 31.7
+  m_fontSizeBase: 31.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

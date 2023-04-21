@@ -14,13 +14,13 @@ public class GraphLoader : MonoBehaviour
         GameObject graphs = GameObject.Find("Graphs");
 
         GameObject graph0 = graphs.transform.Find("Graph").gameObject;
-        graph0.GetComponent<Image>().sprite = Resources.Load<Sprite>("pos");
+        //graph0.GetComponent<Image>().sprite = Resources.Load<Sprite>("pos");
 
         GameObject graph1 = graphs.transform.Find("Graph (1)").gameObject;
-        graph1.GetComponent<Image>().sprite = Resources.Load<Sprite>("vel");
+        //graph1.GetComponent<Image>().sprite = Resources.Load<Sprite>("vel");
 
         GameObject graph2 = graphs.transform.Find("Graph (2)").gameObject;
-        graph2.GetComponent<Image>().sprite = Resources.Load<Sprite>("acc");
+        //graph2.GetComponent<Image>().sprite = Resources.Load<Sprite>("acc");
     }
     
 }

@@ -26,15 +26,17 @@ public class RunPython : MonoBehaviour
 
         float angle = 90 - angleSlider.value / angleSlider.maxValue * 90;
 
-        string pythonArgs = pythonFileName + " " + angle + " \"" + thruster + "\" \"" + body + "\" \"" + nose + "\"";
+        string pythonArgs = angle + " \"" + thruster + "\" \"" + body + "\" \"" + nose + "\"";
 
         print(pythonArgs);
+
+        print(Directory.GetCurrentDirectory());
 
         var p = new Process
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "python",
+                FileName = Directory.GetCurrentDirectory() + "\\OPRAST-Sim\\OPRAST-Sim.exe",
                 Arguments = pythonArgs,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
@@ -64,7 +66,6 @@ public class RunPython : MonoBehaviour
                 while ((line = sr.ReadLine()) != null)
                 {
                     values.Add(line);
-                    //print(line);
                 }
             }
         }

@@ -18,6 +18,9 @@ public class GraphDataInput : MonoBehaviour
     public static float[] vel = new float[RunPython.values.Count];
     public static float[] accel = new float[RunPython.values.Count];
 
+    public static float yMax;
+    public static float vMax = 0;
+    public static float aMax = 0;
 
     void Start()
     {
@@ -39,9 +42,9 @@ public class GraphDataInput : MonoBehaviour
         //read info from RunPython
         string temp;
         string[] temps = new string[10];
-        float yMax = 0;
-        float vMax = 0;
-        float aMax = 0;
+        yMax = 0;
+        vMax = 0;
+        aMax = 0;
 
         for (int i = 0; i < time.Length; i++)
         {

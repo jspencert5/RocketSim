@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Movement : MonoBehaviour

@@ -26,12 +26,13 @@ class RocketState:
         self.theta = 0 # current angle off of x-axis, rad
         self.mR = 0 # mass rocket
         self.mP = 0 # mass propellant
-        # self.mT = self.mR + self.mP # mass total
+        self.mT = 0 # mass total
 
         self._cd = 0.75 # drag coefficient
         self._P = 1.229 # air density, kg/m^3
         self.dt = 0 #  change in time
         self.t = 0 # current time elapsed, t
+        self.dP = False
 
     def export(self):
         """
@@ -65,13 +66,28 @@ class RocketState:
 
         dragX = calcDragX(self.v)
         dragY = calcDragY(self.v)
+        dragTotal = dragX + dragY
+
+        print(dragY)
 
         accelerationX = -dragX / self.mR
         accelerationY = ((self.mR * -9.81) - dragY) / self.mR
-        self.a = [accelerationX, accelerationY, 0]
 
+
+        weight = 9.8 * self.mR
+        if self.dP:
+            if dragTotal >= weight:
+                accelerationY = 0
+
+        self.a = [accelerationX, accelerationY, 0]
         self.updateVelocity(calcDV(self.a, self.dt))
         self.updatePosition(calcDP(self.v, self.dt))
+
+        DP = calcDP(self.v, self.dt)
+        print(DP)
+        if DP[1] < 0:
+            self.dP = True
+
         self.updateTime(self.dt)
 
 
@@ -109,7 +125,4 @@ class RocketState:
         Desc: updates mass based on change in time (mf = mi - dm )
         """
 
-        self.mR = self.mR + dm
-
-
-
+        self.mR = self.mR - dm

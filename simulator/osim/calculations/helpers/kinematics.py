@@ -1,3 +1,5 @@
+import math
+
 """
 
 Kinematics
@@ -5,6 +7,7 @@ Desc: methods to calculate the kinematics of the rocket
 
 
 """
+
 
 def calcDP(v, dt):
     """
@@ -19,6 +22,8 @@ def calcDP(v, dt):
     dpx = vx * dt
     dpy = vy * dt
     dpz = vz * dt
+
+
     return [dpx, dpy, dpz]
 
 
@@ -56,7 +61,20 @@ def calcAcceleration(F, m):
 
 def calcDM(dt, thrust, v):
     """
-    
+    calcDM
+    Desc: calculates the loss in mass based on the rocket equation
+    Params:
+        dt: change in time
+        thrust: thrust of the rocket, in N
+        drag: force of drag on the rocket, in N
+        gravity: force of gravity, in N
     """
 
-    return 0
+    velocityVector = 0
+    for i in range(len(v)):
+        velocityVector += v[i] ** 2
+    velocityVector = math.sqrt(velocityVector)
+
+    dM = dt + abs(thrust) / velocityVector
+
+    return dM / 1000

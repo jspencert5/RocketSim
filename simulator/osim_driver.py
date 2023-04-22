@@ -33,6 +33,7 @@ def run():
     rocketState.theta = angle
     rocketState.mP = engine.fuelMass / 1000
     rocketState.mR = (engine.mass + body.mass + nose.mass) / 1000
+    rocketState.mT = rocketState.mR + rocketState.mP
     rocketState.p = [0,0.1,0] # set position to ~4in off ground 
     rocketState.dt = 1 / 30 # change in time (dt) 1/30 -> 30 frames per second
 

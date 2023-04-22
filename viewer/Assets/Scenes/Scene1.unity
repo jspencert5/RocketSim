@@ -900,15 +900,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 267246239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bb519bad042414885da87e16c69464, type: 3}
+  m_Script: {fileID: 11500000, guid: ce347d10be9694442a93b1498716b3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objeRenderer: {fileID: 673959648}
   objec: {fileID: 673959647}
-  colors:
-  - {r: 0.11764706, g: 0.7686275, b: 0.7686275, a: 0}
-  - {r: 0.5294118, g: 0.17254901, b: 0.4024864, a: 0}
-  - {r: 0.111484796, g: 0.8207547, b: 0.08904416, a: 0}
+  materials:
+  - {fileID: 2100000, guid: 606fed63a15bc5248a8adf8f6b64541f, type: 2}
+  - {fileID: 2100000, guid: 70ae7479d9c73d440b9e077a2915f16d, type: 2}
+  - {fileID: 2100000, guid: a6d26bea507b1464fa9685a8a27d1c6e, type: 2}
 --- !u!1 &322044036
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,8 +994,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1620188107}
-        m_TargetAssemblyTypeName: ThrustMaterialController, Assembly-CSharp
+      - m_Target: {fileID: 1620188109}
+        m_TargetAssemblyTypeName: MaterialController, Assembly-CSharp
         m_MethodName: changeMaterial
         m_Mode: 1
         m_Arguments:
@@ -1526,6 +1526,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3431290990651641970, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ce6e9be075759254aa739d5a234844e3, type: 2}
+    - target: {fileID: 4062230749793004434, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14067d4b0cb2e0844b6490746e9361f9, type: 2}
     - target: {fileID: 4062230751211237316, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1590,6 +1598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket 2.0
       objectReference: {fileID: 0}
+    - target: {fileID: 4062230751212934835, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 606fed63a15bc5248a8adf8f6b64541f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1598,36 +1610,6 @@ PrefabInstance:
 --- !u!1 &673959638 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3791635654168129959, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
-  m_PrefabInstance: {fileID: 673959637}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &673959639 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4062230750563088468, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
-  m_PrefabInstance: {fileID: 673959637}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &673959640 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4062230750563088470, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
-  m_PrefabInstance: {fileID: 673959637}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &673959641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4062230749961842592, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
-  m_PrefabInstance: {fileID: 673959637}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &673959642 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4062230749961842594, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
-  m_PrefabInstance: {fileID: 673959637}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &673959643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4062230749172745145, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
-  m_PrefabInstance: {fileID: 673959637}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &673959644 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4062230749172745147, guid: 7e3c13ab22f62424baccceb44e47b06d, type: 3}
   m_PrefabInstance: {fileID: 673959637}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &673959645 stripped
@@ -2864,7 +2846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1620188108}
-  - component: {fileID: 1620188107}
+  - component: {fileID: 1620188109}
   m_Layer: 0
   m_Name: ThrusterMaterialController
   m_TagString: Untagged
@@ -2872,30 +2854,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1620188107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620188106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2db19f6876c936947b47434f3e509391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objeRenderer1: {fileID: 673959646}
-  objec1: {fileID: 673959645}
-  objeRenderer2: {fileID: 673959644}
-  objec2: {fileID: 673959643}
-  objeRenderer3: {fileID: 673959642}
-  objec3: {fileID: 673959641}
-  objeRenderer4: {fileID: 673959640}
-  objec4: {fileID: 673959639}
-  colors:
-  - {r: 0.11764706, g: 0.76862746, b: 0.76862746, a: 0}
-  - {r: 0.5294118, g: 0.17254902, b: 0.40392157, a: 0}
-  - {r: 0.10980392, g: 0.81960785, b: 0.09019608, a: 0}
 --- !u!4 &1620188108
 Transform:
   m_ObjectHideFlags: 0
@@ -2911,6 +2869,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620188109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620188106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7181dc3b35699e47aee9b51b2dbc443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objeRenderer: {fileID: 673959646}
+  objec: {fileID: 673959645}
+  materials:
+  - {fileID: 2100000, guid: e1aff2bbf1695a84f9c53b0032b35ca9, type: 2}
+  - {fileID: 2100000, guid: 14067d4b0cb2e0844b6490746e9361f9, type: 2}
+  - {fileID: 2100000, guid: ecd78dc9b6955584c9893afdc5adcb27, type: 2}
 --- !u!1 &1622424336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,15 +3035,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745940020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bb519bad042414885da87e16c69464, type: 3}
+  m_Script: {fileID: 11500000, guid: 69b123538f190144a9f8df56fe3b1881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objeRenderer: {fileID: 673959649}
   objec: {fileID: 673959638}
-  colors:
-  - {r: 0.11764706, g: 0.7686275, b: 0.7686275, a: 0}
-  - {r: 0.5294118, g: 0.17254901, b: 0.4024864, a: 0}
-  - {r: 0.111484796, g: 0.8207547, b: 0.08904416, a: 0}
+  materials:
+  - {fileID: 2100000, guid: ce6e9be075759254aa739d5a234844e3, type: 2}
+  - {fileID: 2100000, guid: d0661610df8651d4ca71dde03cac6e25, type: 2}
+  - {fileID: 2100000, guid: ddce2c170c5e3984cb794676aa4b78cd, type: 2}
 --- !u!4 &1745940022
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class TextChanger : MonoBehaviour
 {
     public Text textField;
 
-    [SerializeField] private string[,] texts = new string[3,3] { { "PNC-24A", "PNC-24C", "PNC-24D" }, { "Paper", "Fiberglass", "Clear Plastic" }, { "Estes D12", "Estes E12", "Estes E9" } };
+    [SerializeField] private string[,] texts = new string[3,3] { { "PNC-24A", "PNC-24C", "PNC-24D" }, { "Paper", "Balsa Wood", "Clear Plastic" }, { "Estes D12", "Estes E12", "Estes E9" } };
 
 
     public int type; // 0 == nose, 1 == body, 2 == engine

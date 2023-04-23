@@ -9,18 +9,21 @@ using UnityEngine.UI;
 public class GraphLoader : MonoBehaviour
 {
 
+    public string imagePath;
+    public RawImage rawImage;
+
     void Start()
     {
-        GameObject graphs = GameObject.Find("Graphs");
-
-        GameObject graph0 = graphs.transform.Find("Graph").gameObject;
-        //graph0.GetComponent<Image>().sprite = Resources.Load<Sprite>("pos");
-
-        GameObject graph1 = graphs.transform.Find("Graph (1)").gameObject;
-        //graph1.GetComponent<Image>().sprite = Resources.Load<Sprite>("vel");
-
-        GameObject graph2 = graphs.transform.Find("Graph (2)").gameObject;
-        //graph2.GetComponent<Image>().sprite = Resources.Load<Sprite>("acc");
+        Texture2D texture = LoadImage(imagePath);
+        rawImage.texture = texture;
     }
     
+    Texture2D LoadImage(string path)
+    {
+        Texture2D texture = new Texture2D(2, 2);
+        byte[] imageData = File.ReadAllBytes(path);
+        texture.LoadImage(imageData);
+
+        return texture;
+    }
 }

@@ -8,8 +8,8 @@ public class MaterialController : MonoBehaviour
 {
     public Renderer objeRenderer;
     public GameObject objec;
-    [SerializeField] private Color[] colors;
-    private int colVal; 
+    [SerializeField] public static Material[] colors;
+    public static int colVal;
 
     void Start()
     {
@@ -24,6 +24,6 @@ public class MaterialController : MonoBehaviour
             colVal = 0;
         }
 
-            objeRenderer.material.color = colors[colVal];
+            objeRenderer.material= colors[colVal];
     }
 }

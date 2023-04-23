@@ -45,7 +45,8 @@ def run():
     #plt.plot(times, fitFunc(times), 'g', lw=3)
     #plt.show()
 
-    positionData = []
+    positionDataY = []
+    positionDataX = []
     velocityData = []
     accelerationData = []
     timeData = []
@@ -76,7 +77,8 @@ def run():
             #print(rocketState.v)
             line = rocketState.export()
 
-            positionData.append(line[2])
+            positionDataY.append(line[2])
+            positionDataX.append(line[1])
             velocityData.append(math.sqrt(math.pow(line[4],2) + math.pow(line[5],2)))
             accelerationData.append(math.sqrt(math.pow(line[7],2) + math.pow(line[8],2)))
             timeData.append(line[0])
@@ -88,14 +90,22 @@ def run():
 
             rocketState.updateStateProjectile()
 
-            print(rocketState.v)
+            #print(rocketState.v)
 
-            lines.append(rocketState.export())
+            line = rocketState.export()
+
+            positionDataY.append(line[2])
+            positionDataX.append(line[1])
+            velocityData.append(math.sqrt(math.pow(line[4],2) + math.pow(line[5],2)))
+            accelerationData.append(math.sqrt(math.pow(line[7],2) + math.pow(line[8],2)))
+            timeData.append(line[0])
+
+            lines.append(line)
 
     # save data
     io.exportSimData(lines, "simulationData.csv")
     
-    createGraph(positionData, timeData, "pos.png")
-    createGraph(velocityData, timeData, "vel.png")
-    createGraph(accelerationData, timeData, "acc.png")
+    createGraph(positionDataY, positionDataX, "pos.png", "Position", "X (m)", "Y (m)", "blue", 1)
+    createGraph(velocityData, timeData, "vel.png", "Speed", "V (m/s)", "Time (s)", "red", 2)
+    createGraph(accelerationData, timeData, "acc.png", "Acceleration", "A (m/s^2)", "Time (s)", "green", 3)
     

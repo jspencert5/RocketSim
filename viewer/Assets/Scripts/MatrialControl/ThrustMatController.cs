@@ -9,11 +9,12 @@ public class ThrustMatController : MonoBehaviour
     public Renderer objeRenderer;
     public GameObject objec;
     [SerializeField] private Material[] materials;
-    public static int matVal;
+    public static int matVal = 0;
 
     void Start()
     {
         objeRenderer = objec.GetComponent<Renderer>();
+        objeRenderer.material = materials[matVal];
     }
 
     public void changeMaterial()

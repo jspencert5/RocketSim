@@ -10,7 +10,7 @@ public class TextChanger : MonoBehaviour
 {
     public Text textField;
 
-    [SerializeField] private string[,] texts = new string[3,3] { { "PNC-24A", "PNC-24C", "PNC-24D" }, { "Paper", "Balsa Wood", "Clear Plastic" }, { "Estes D12", "Estes E12", "Estes E9" } };
+    [SerializeField] private string[,] texts = new string[3,3] { { "PNC-24A", "PNC-24C", "PNC-24D" }, { "Paper", "Wood", "Clear Plastic" }, { "Estes D12", "Estes E12", "Estes E9" } };
 
 
     public int type; // 0 == nose, 1 == body, 2 == engine
@@ -31,7 +31,16 @@ public class TextChanger : MonoBehaviour
 
     private void Start()
     {
-        textField.text = texts[type,0];
+
+        int index = 0;
+
+        if (type == 0) index = NoseMatController.matVal;
+        if (type == 1) index = BodyMatController.matVal;
+        if (type == 2) index = ThrustMatController.matVal;
+
+        textNum = index;
+
+        textField.text = texts[type,index];
 
         //var engine = Python.CreateEngine();
 

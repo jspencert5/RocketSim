@@ -87,7 +87,7 @@ public class Movement : MonoBehaviour
                 isMoving = false;
                 firstLoop = true;
                 stopwatch2.Reset();
-                curI = 0;
+                
             }
         }
     }
@@ -95,7 +95,8 @@ public class Movement : MonoBehaviour
     public void move()
     {
         isMoving = true;
-        
+        curI = 0;
+
     }
 
     public int calcI(float time)

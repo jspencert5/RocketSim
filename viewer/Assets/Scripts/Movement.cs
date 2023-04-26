@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     {
         string temp;
         string[] temps = new string[10];
+        curI = 0;
 
         xPos = new float[RunPython.values.Count];
         yPos = new float[RunPython.values.Count];

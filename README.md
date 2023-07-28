@@ -14,8 +14,8 @@ When the program is first launched, the user is met with a menu that allows them
 
 ## 🎯 Launch Pad
 <p align="left">
-  <img width="480" height="270" src="https://github.com/jspencert5/RocketSim/assets/112229422/a5337486-11b6-4196-b63e-ee97044ad91d">
-  <img width="480" height="270" src="https://github.com/jspencert5/RocketSim/assets/112229422/56b2f65d-6ef0-4339-b2c4-194783a6bccc">
+  <img width="240" height="135" src="https://github.com/jspencert5/RocketSim/assets/112229422/a5337486-11b6-4196-b63e-ee97044ad91d">
+  <img width="240" height="135" src="https://github.com/jspencert5/RocketSim/assets/112229422/56b2f65d-6ef0-4339-b2c4-194783a6bccc">
 </p>
 
 At the launch pad, the user can launch their rocket and see it fly through the environment. As the rocket is flying, the user can see valuable information including: current height, distance from pad, total velocity, and total acceleration. The user can also go back to the assembly screen and rebuild their rocket or immediately jump to the post flight stats screen.

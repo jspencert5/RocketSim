@@ -4,7 +4,7 @@
 ## 📄 About
 This project is a small, model rocket simulation software developed for the CEN4010 Software Engineering class. This program allows a user to build a small model rocket, with real world model rocket parts, and simulate the flight of that rocket. When the flight is done, an analysis page appears with charts including position, velocity, and acceleration graphs, and pertinent info such as max height and air time. The program itself accounts for real world forces a model rocket would experience, such as drag and gravity.
 
-## 🚀 Rocket Menu
+## 🚀 Rocket Assembly
 <p align="center">
   <img width="480" height="270" src="https://github.com/jspencert5/RocketSim/assets/112229422/c65de4c8-437c-41a8-98ca-3d2c283e79e0">
 </p>
@@ -18,4 +18,13 @@ When the program is first launched, the user is met with a menu that allows them
   <img width="360" height="202" src="https://github.com/jspencert5/RocketSim/assets/112229422/56b2f65d-6ef0-4339-b2c4-194783a6bccc">
 </p>
 
-At the launch pad, the user can launch their rocket and see it fly through the environment. As the rocket is flying, the user can see valuable information including: current height, distance from pad, total velocity, and total acceleration. The user can also go back to the assembly screen and rebuild their rocket or immediately jump to the post flight stats screen.
+At the launch pad, the user can launch their rocket and see it fly through the environment. As the rocket is flying, the user can see valuable information including: current height, distance from pad, total velocity, and total acceleration. The user can also go back to the assembly screen and rebuild their rocket or immediately jump to the post flight analysis screen.
+
+## 📊 Post Flight Stats
+<p align="center">
+  <img width="480" height="270" src="https://github.com/jspencert5/RocketSim/assets/112229422/53ca0827-b4ea-49d5-8a76-46a46389a476">
+</p>
+When the user opens the post flight analysis screen, they are met with 3 graphs and 4 numbers. The graphs show the X/Y position, the velocity over time, and acceleration over time. The 4 numbers show the maximum height reached, the maximum velocity reached, the maximum acceleration reached, and the total air time of the rocket. From this page, the user can go back to the launch pad or back into rocket assembly.
+
+## 📖 Simulation
+TBD

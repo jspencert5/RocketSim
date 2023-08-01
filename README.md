@@ -2,7 +2,7 @@
 
 
 ## 📄 About
-This project is a small, model rocket simulation software developed for the CEN4010 Software Engineering class. This program allows a user to build a small model rocket, with real world model rocket parts, and simulate the flight of that rocket. When the flight is done, an analysis page appears with charts including position, velocity, and acceleration graphs, and pertinent info such as max height and air time. The program itself accounts for real world forces a model rocket would experience, such as drag and gravity.
+This project is a small, model rocket simulation software developed for the CEN4010 Software Engineering class. This program allows a user to build a small model rocket, with real world model rocket parts, and simulate the flight of that rocket. When the flight is done, an analysis page appears with charts including position, velocity, and acceleration graphs, and pertinent info such as max height and air time. The program itself accounts for real world forces a model rocket would experience, such as drag and gravity. The viewer side was built with Unity and the backend simulation was done using Python.
 
 ## 🚀 Rocket Assembly
 <p align="center">
